@@ -127,7 +127,7 @@ nav {
 #backToTop.show { opacity: 1; visibility: visible; }
 
 /* --- CONTACT ME --- */
-.contact-me { padding: 80px 15% 100px; }
+.contact-me { padding: 60px 10% 60px; }
 .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 50px; }
 .contact-info h2 { font-size: 3rem; font-weight: 800; margin-bottom: 20px; }
 .contact-info h2 span { color: var(--accent); }
@@ -137,7 +137,7 @@ nav {
 .contact-icon { width: 30px; height: 30px; object-fit: contain; }
 .detail-item h4 { font-size: 1.1rem; font-weight: 600; margin-top: 5px; margin-bottom: 5px; }
 .detail-item p { color: var(--text-gray); }
-.social-links a img { width: 30px; height: 30px; }
+.social-links a img { height: 30px; margin-top: 5px;}
 
 .contact-form-container { background: var(--glass); border: 1px solid var(--glass-border); padding: 40px; border-radius: 30px; backdrop-filter: blur(10px); }
 .contact-form-container h3 { font-size: 1.8rem; font-weight: 700; margin-bottom: 30px; }
