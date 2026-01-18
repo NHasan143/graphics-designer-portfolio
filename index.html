@@ -110,6 +110,15 @@
                 <div class="portfolio-item tall">
                     <iframe src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
                 </div>
+                <div class="portfolio-item tall">
+                    <iframe src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="portfolio-item tall">
+                    <iframe src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="portfolio-item tall">
+                    <iframe src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+                </div>
             </div>
         </div>
 
@@ -140,6 +149,12 @@
         <div class="portfolio-category">
             <h3>Promotional Video</h3>
             <div class="grid-promo">
+                <div class="portfolio-item wide">
+                    <iframe src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="portfolio-item wide">
+                    <iframe src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+                </div>
                 <div class="portfolio-item wide">
                     <iframe src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
                 </div>
@@ -188,7 +203,7 @@
                 </div>
 
                 <div class="social-media">
-                    <h4>Share Social Media</h4>
+                    <h4>My Social Handles</h4>
                     <div class="social-links">
                         <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
                         <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
@@ -199,8 +214,8 @@
             </div>
 
             <div class="contact-form-container">
-                <h3>Provide Me With The Details</h3>
-                <form action="#" method="POST">
+                <h3>Provide me with the details</h3>
+                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
                     <div class="form-group">
                         <label for="name">Name*</label>
                         <input type="text" id="name" name="name" placeholder="Your Name" required>
@@ -233,6 +248,44 @@
         // Set dynamic year
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
+        // Form Handling Script
+        const form = document.getElementById("my-form");
+        const successMessage = document.getElementById("success-message");
+
+        async function handleSubmit(event) {
+            event.preventDefault();
+            const status = document.getElementById("submit-btn");
+            const data = new FormData(event.target);
+        
+            status.innerHTML = "Sending...";
+            status.disabled = true;
+
+            fetch(event.target.action, {
+                method: form.method,
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            }).then(response => {
+                if (response.ok) {
+                    // Hide the form and show the success message
+                    form.style.display = "none";
+                    successMessage.style.display = "block";
+                } else {
+                    response.json().then(data => {
+                        if (Object.hasOwn(data, 'errors')) {
+                            alert(data["errors"].map(error => error["message"]).join(", "));
+                        } else {
+                            alert("Oops! There was a problem submitting your form");
+                        }
+                    })
+                }
+            }).catch(error => {
+                alert("Oops! There was a problem submitting your form");
+            }).finally(() => {
+                status.innerHTML = "Submit";
+                status.disabled = false;
+            });
+        }
+        form.addEventListener("submit", handleSubmit);
         const backToTop = document.getElementById('backToTop');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 400) { backToTop.classList.add('show'); } 
