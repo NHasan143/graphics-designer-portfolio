@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md. Redoan | Expert video editor and graphic designer</title>
+    
+    <link rel="icon" type="image/png" href="Logo.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- GLOBAL SETTINGS --- */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --accent: #ff4c31; 
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.4);
+            --text-white: #ffffff;
+            --text-gray: #a9a9b3;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: url('Background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: var(--text-white);
+            overflow-x: hidden;
+            line-height: 1.6;
+            background-color: #0d0617;
+        }
+
+        /* --- WAVING HAND ANIMATION --- */
+        @keyframes wave-animation {
+            0% { transform: rotate( 0.0deg); }
+            10% { transform: rotate(14.0deg); }
+            20% { transform: rotate(-8.0deg); }
+            30% { transform: rotate(14.0deg); }
+            40% { transform: rotate(-4.0deg); }
+            50% { transform: rotate(10.0deg); }
+            60% { transform: rotate( 0.0deg); }
+            100% { transform: rotate( 0.0deg); }
+        }
+
+        .wave-emoji {
+            display: inline-block;
+            animation: wave-animation 2.5s infinite;
+            transform-origin: 70% 70%;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center; 
+            padding: 10px 10%; 
+            position: fixed;
+            width: 100%;
+            top: 0;
+            backdrop-filter: blur(15px);
+            z-index: 1000;
+        }
+
+        .logo img {
+            height: 80px; 
+            width: auto;
+            display: block;
+        }
+
+        .nav-links { list-style: none; display: flex; gap: 30px; }
+        .nav-links a { text-decoration: none; color: white; font-size: 1.1rem; font-weight: 600; transition: 0.3s; }
+        .nav-links a:hover { color: var(--accent); }
+        
+        .btn-hire {
+            background: var(--accent);
+            border: none;
+            padding: 10px 25px;
+            color: white;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .btn-hire:hover { transform: scale(1.05); filter: brightness(1.2); box-shadow: 0 0 15px rgba(255, 76, 49, 0.4); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            /* UNIFIED: Bottom padding set to 60px */
+            padding: 150px 10% 60px;
+            min-height: 90vh;
+        }
+
+        .hero-content { max-width: 500px; }
+        .hero-content h1 { font-size: 4.5rem; line-height: 1.1; margin-bottom: 20px; font-weight: 800; }
+        .hero-content span.accent { color: var(--accent); }
+        .hero-content p { color: var(--text-gray); margin-bottom: 30px; }
+
+        .hero-image { position: relative; }
+        .hero-image img { width: 400px; border-radius: 20px; z-index: 2; }
+
+        /* --- LOGO BANNER --- */
+        .logo-banner {
+            width: 100%;
+            /* UNIFIED: Vertical padding set to 60px */
+            padding: 60px 0;
+            background: var(--glass); 
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden; 
+            position: relative;
+        }
+
+        .banner-track { display: flex; width: max-content; animation: scroll-right-to-left 40s linear infinite; }
+        .banner-track img { height: auto; width: 100vw; display: block; }
+
+        @keyframes scroll-right-to-left {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* --- ABOUT ME SECTION --- */
+        /* UNIFIED: Set to 60px vertical padding */
+        .about-me { padding: 60px 10%; }
+        .about-content {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            padding: 50px;
+            border-radius: 30px;
+            backdrop-filter: blur(10px);
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .about-content p { font-size: 1.2rem; color: var(--text-gray); line-height: 1.8; }
+
+        /* --- EXPERT AREAS SECTION --- */
+        /* UNIFIED: Set to 60px vertical padding */
+        .expert-areas { padding: 60px 5%; }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 { font-size: 3rem; font-weight: 800; }
+        .section-header span { color: var(--accent); }
+
+        .expert-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; padding: 0 2%; }
+        .expert-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            padding: 40px 20px;
+            border-radius: 30px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .expert-card:hover { border-color: var(--accent); transform: translateY(-10px); background: rgba(255, 76, 49, 0.05); }
+        .expert-card img { width: 80px; height: 80px; margin-bottom: 20px; object-fit: contain; }
+        .expert-card h4 { font-size: 1.3rem; font-weight: 700; margin-bottom: 12px; color: var(--text-white); }
+        .expert-card p { font-size: 0.95rem; color: var(--text-gray); line-height: 1.5; font-weight: 400; }
+
+        /* --- PORTFOLIO SECTION --- */
+        /* UNIFIED: Set to 60px vertical padding */
+        .portfolio { padding: 60px 10%; }
+        .portfolio-category { margin-bottom: 80px; }
+        .portfolio-category h3 { font-size: 1.8rem; margin: 40px 0 20px; text-align: center; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; }
+
+        .grid-reels { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .grid-ads { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .grid-promo { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; }
+
+        .portfolio-item {
+            background: #ff6a55; 
+            border-radius: 20px;
+            width: 100%;
+            cursor: pointer;
+            transition: 0.4s ease;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            border: 1px solid var(--glass-border);
+        }
+        .portfolio-item:hover { transform: translateY(-10px); filter: brightness(1.15); border-color: var(--accent); }
+
+        .tall { height: 480px; }
+        .square { aspect-ratio: 1/1; }
+        .wide { height: 260px; }
+
+        /* --- BACK TO TOP BUTTON --- */
+        #backToTop {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            width: 50px;
+            height: 50px;
+            background: var(--glass);
+            border: 2px solid var(--accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s;
+            backdrop-filter: blur(10px);
+        }
+        #backToTop.show { opacity: 1; visibility: visible; }
+        #backToTop:hover { background: var(--accent); transform: scale(1.1); }
+
+        /* --- RESPONSIVENESS --- */
+        @media (max-width: 1100px) {
+            .expert-grid { grid-template-columns: repeat(2, 1fr); }
+            .grid-reels, .grid-ads { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 900px) {
+            .hero { flex-direction: column; text-align: center; padding-top: 120px;}
+            .hero-image img { width: 300px; margin-top: 50px; }
+            .about-content { padding: 30px; }
+            .about-content p { font-size: 1.1rem; }
+            .grid-promo { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 600px) {
+            .expert-grid, .grid-reels, .grid-ads { grid-template-columns: 1fr; }
+            #backToTop { bottom: 20px; right: 20px; width: 40px; height: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">
+            <img src="Logo.png" alt="Logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#about-me">ABOUT ME</a></li>
+            <li><a href="#services">SERVICES</a></li>
+            <li><a href="#portfolio">PORTFOLIO</a></li>
+        </ul>
+        <button class="btn-hire">Let’s Talk</button>
+    </nav>
+
+    <header class="hero" id="home">
+        <div class="hero-content">
+            <h1>HELLO I'M <span class="wave-emoji">👋</span></h1>
+            <h1>MD. <span class="accent">REDOAN</span></h1>
+            <p>Professional video editor and graphic designer specialized in high-impact visual content</p>
+            <button class="btn-hire" onclick="location.href='#portfolio'">View Portfolio</button>
+        </div>
+        <div class="hero-image">
+            <img src="redoan.png" alt="Md. Redoan">
+        </div>
+    </header>
+
+    <div class="logo-banner">
+        <div class="banner-track">
+            <img src="Banner.png" alt="Trusted Clients">
+            <img src="Banner.png" alt="Trusted Clients">
+        </div>
+    </div>
+
+    <section class="about-me" id="about-me">
+        <div class="section-header">
+            <h2>About <span>Me</span></h2>
+        </div>
+        <div class="about-content">
+            <p>
+                I am a dedicated creative professional with a passion for storytelling through visual media. 
+                My expertise spans high-end video editing, dynamic motion graphics, and forward-thinking 
+                AI-powered visual solutions designed to elevate brand identities. I employ a collaborative, 
+                detail-oriented workflow, ensuring every project moves seamlessly from conceptualization 
+                to a polished, professional finish that resonates with global audiences.
+            </p>
+        </div>
+    </section>
+
+    <section class="expert-areas" id="services">
+        <div class="section-header">
+            <h2>My Expert <span>Areas</span></h2>
+        </div>
+        <div class="expert-grid">
+            <div class="expert-card">
+                <img src="MotionGraphics.png" alt="Motion Graphics">
+                <h4>Motion Graphics</h4>
+                <p>Expert In Creating High-Quality, Professional Motion Visuals With Clean And Impactful Storytelling</p>
+            </div>
+            <div class="expert-card">
+                <img src="AIExpert.png" alt="AI Expert">
+                <h4>AI Expert</h4>
+                <p>Expert In Delivering High-Quality AI-Powered Visuals, Videos, And Creative Solutions With A Professional Approach</p>
+            </div>
+            <div class="expert-card">
+                <img src="VideoEditing.png" alt="Video Editing">
+                <h4>Video Editing</h4>
+                <p>Skilled In Producing Polished, Engaging Videos With Smooth Transitions And A Professional Finish</p>
+            </div>
+            <div class="expert-card">
+                <img src="GraphicsDesign.png" alt="Graphics Design">
+                <h4>Graphics Design</h4>
+                <p>Professional In Creating Clean, Modern, And Visually Strong Designs That Support Brand Identity</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="portfolio" id="portfolio">
+        <div class="section-header">
+            <h2>My <span>Portfolio</span></h2>
+        </div>
+
+        <div class="portfolio-category">
+            <h3>Reels</h3>
+            <div class="grid-reels">
+                <div class="portfolio-item tall"></div>
+                <div class="portfolio-item tall"></div>
+                <div class="portfolio-item tall"></div>
+            </div>
+        </div>
+
+        <div class="portfolio-category">
+            <h3>Social Media Ads</h3>
+            <div class="grid-ads">
+                <div class="portfolio-item square"></div>
+                <div class="portfolio-item square"></div>
+                <div class="portfolio-item square"></div>
+                <div class="portfolio-item square"></div>
+                <div class="portfolio-item square"></div>
+                <div class="portfolio-item square"></div>
+            </div>
+        </div>
+
+        <div class="portfolio-category">
+            <h3>Promotional Video</h3>
+            <div class="grid-promo">
+                <div class="portfolio-item wide"></div>
+                <div class="portfolio-item wide"></div>
+            </div>
+        </div>
+    </section>
+
+    <a href="#home" id="backToTop">↑</a>
+
+    <script>
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+    </script>
+
+</body>
+</html>
