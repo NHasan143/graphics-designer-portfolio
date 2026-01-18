@@ -223,9 +223,16 @@
         </div>
     </section>
 
+    <footer>
+        <p>&copy; <span id="current-year"></span> MD Redoan | All Rights Reserved</p>
+    </footer>
+
     <a href="#home" id="backToTop">↑</a>
 
     <script>
+        // Set dynamic year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
         const backToTop = document.getElementById('backToTop');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 400) { backToTop.classList.add('show'); } 
