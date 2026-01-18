@@ -96,16 +96,16 @@ nav {
 .expert-card img { width: 80px; height: 80px; margin-bottom: 20px; object-fit: contain; }
 
 /* --- PORTFOLIO --- */
-.portfolio { padding: 60px 60px; }
-.portfolio-category { margin-bottom: 80px; }
-.portfolio-category h3 { font-size: 1.8rem; margin: 40px 0 20px; text-align: center; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; }
+.portfolio { padding: 60px 30px; }
+.portfolio-category { margin-bottom: 60px; }
+.portfolio-category h3 { font-size: 1.8rem; margin: 20px 0 20px; text-align: center; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; }
 
 .grid-reels { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .grid-ads { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .grid-promo { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
 
 .portfolio-item {
-    background: #000; border-radius: 20px; width: 100%; cursor: pointer;
+    background: #000; border-radius: 20px; cursor: pointer;
     transition: 0.4s ease; box-shadow: 0 15px 35px rgba(0,0,0,0.4);
     border: 1px solid var(--glass-border); overflow: hidden; position: relative;
 }
@@ -126,6 +126,13 @@ nav {
 }
 #backToTop.show { opacity: 1; visibility: visible; }
 
+/* --- EXPLORE MORE SECTION --- */
+.explore-more { padding: 10px 10% 60px; text-align: center; }
+.explore-btns { display: flex; justify-content: center; gap: 25px; }
+.explore-btn { background: var(--glass); border: 1px solid var(--glass-border); color: var(--text-white); padding: 14px 45px;
+                border-radius: 50px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.4s ease; backdrop-filter: blur(10px); }
+.explore-btn:hover { background: var(--accent); border-color: var(--accent); color: white; transform: translateY(-5px); box-shadow: 0 10px 20px rgba(255, 76, 49, 0.3); }
+
 /* --- CONTACT ME --- */
 .contact-me { padding: 60px 10% 60px; }
 .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 50px; }
@@ -137,7 +144,8 @@ nav {
 .contact-icon { width: 30px; height: 30px; object-fit: contain; }
 .detail-item h4 { font-size: 1.1rem; font-weight: 600; margin-top: 5px; margin-bottom: 5px; }
 .detail-item p { color: var(--text-gray); }
-.social-links a img { height: 30px; margin-top: 5px;}
+.social-links a img { margin-left: -12px; height: 30px; margin-top: 5px;}
+.social-links a:hover img { filter: invert(43%) sepia(78%) saturate(3683%) hue-rotate(344deg) brightness(100%) contrast(101%); }
 
 .contact-form-container { background: var(--glass); border: 1px solid var(--glass-border); padding: 40px; border-radius: 30px; backdrop-filter: blur(10px); }
 .contact-form-container h3 { font-size: 1.8rem; font-weight: 700; margin-bottom: 30px; }
@@ -170,4 +178,10 @@ footer { text-align: center; padding: 20px 10%; color: var(--text-gray);border-t
     .hero { flex-direction: column; text-align: center; }
     .hero-image img { width: 300px; margin-top: 50px; }
     .expert-grid, .grid-reels, .grid-ads, .grid-promo, .contact-grid { grid-template-columns: 1fr; }
+}
+
+/* --- Explore More --- */
+@media (max-width: 768px) {
+    .explore-btns { flex-direction: column; align-items: center; gap: 15px; }
+    .explore-btn { width: 100%; max-width: 300px; }
 }
