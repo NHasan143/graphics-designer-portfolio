@@ -215,7 +215,12 @@
 
             <div class="contact-form-container">
                 <h3>Provide me with the details</h3>
-                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <form id="my-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <div id="success-message" style="display:none; text-align:center; padding: 20px;">
+                        <p style="color: var(--accent); font-weight: 800; font-size: 1.2rem;">
+                            Thanks! I have received your query.
+                        </p>
+                    </div>
                     <div class="form-group">
                         <label for="name">Name*</label>
                         <input type="text" id="name" name="name" placeholder="Your Name" required>
@@ -243,6 +248,9 @@
     </footer>
 
     <a href="#home" id="backToTop">↑</a>
+
+    
+    <!-- JavaScript Section -->
 
     <script>
         // Set dynamic year
