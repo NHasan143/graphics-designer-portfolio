@@ -10,14 +10,20 @@
     <link rel="icon" type="image/png" href="Logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
     <nav>
         <div class="logo">
             <img src="Logo.png" alt="Logo">
         </div>
-        <ul class="nav-links">
+        
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <ul class="nav-links" id="nav-links">
             <li><a href="#home">HOME</a></li>
             <li><a href="#about-me">ABOUT ME</a></li>
             <li><a href="#services">SERVICES</a></li>
@@ -119,8 +125,6 @@
             <div class="grid-promo">
                 <div class="portfolio-item wide"></div>
                 <div class="portfolio-item wide"></div>
-                <div class="portfolio-item wide"></div>
-                <div class="portfolio-item wide"></div>
             </div>
         </div>
     </section>
@@ -128,6 +132,7 @@
     <a href="#home" id="backToTop">↑</a>
 
     <script>
+        // Back to top button logic
         const backToTop = document.getElementById('backToTop');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 400) {
@@ -135,6 +140,23 @@
             } else {
                 backToTop.classList.remove('show');
             }
+        });
+
+        // Mobile Menu Logic
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('toggle');
+        });
+
+        // Close menu when a link is clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('toggle');
+            });
         });
     </script>
 

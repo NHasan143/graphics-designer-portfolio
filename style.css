@@ -68,6 +68,29 @@ nav {
 .nav-links a { text-decoration: none; color: white; font-size: 1.1rem; font-weight: 600; transition: 0.3s; }
 .nav-links a:hover { color: var(--accent); }
 
+/* Hamburger Styling */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    z-index: 1100;
+}
+
+.hamburger span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background: white;
+    transition: 0.4s;
+    border-radius: 10px;
+}
+
+/* Animation for Hamburger turning into 'X' */
+.hamburger.toggle span:nth-child(1) { transform: rotate(-45deg) translate(-5px, 6px); }
+.hamburger.toggle span:nth-child(2) { opacity: 0; }
+.hamburger.toggle span:nth-child(3) { transform: rotate(45deg) translate(-5px, -6px); }
+
 .btn-hire {
     background: var(--accent);
     border: none;
@@ -213,6 +236,27 @@ nav {
 }
 
 @media (max-width: 900px) {
+    /* Mobile Navigation Style */
+    .hamburger { display: flex; }
+    
+    .nav-links {
+        position: fixed;
+        right: -100%;
+        top: 0;
+        height: 100vh;
+        width: 100%;
+        background: rgba(13, 6, 23, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: 0.5s ease-in-out;
+        z-index: 1050;
+    }
+    
+    .nav-links.active { right: 0; }
+    .nav-links a { font-size: 2rem; }
+
     .hero { flex-direction: column; text-align: center; padding-top: 120px;}
     .hero-image img { width: 300px; margin-top: 50px; }
     .about-content { padding: 30px; }
@@ -223,4 +267,5 @@ nav {
 @media (max-width: 600px) {
     .expert-grid, .grid-reels, .grid-ads { grid-template-columns: 1fr; }
     #backToTop { bottom: 20px; right: 20px; width: 40px; height: 40px; }
+    .hero-content h1 { font-size: 3rem; }
 }
