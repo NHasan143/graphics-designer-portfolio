@@ -34,6 +34,11 @@ body {
     100% { transform: translateX(-50%); }
 }
 
+/* --- LOGO STYLING --- */
+.logo a { display: block; line-height: 0; }
+.logo img { height: 60px; width: auto; display: block; transition: filter 0.3s ease; }
+.logo a:hover img { filter: invert(43%) sepia(78%) saturate(3683%) hue-rotate(344deg) brightness(100%) contrast(101%); }
+
 /* --- NAVIGATION --- */
 nav {
     display: flex; justify-content: space-between; align-items: center; 
