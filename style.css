@@ -163,7 +163,7 @@ nav {
     padding: 50px;
     border-radius: 30px;
     backdrop-filter: blur(10px);
-    max-width: 1200px;
+    max-width: 1500px;
     margin: 0 auto; 
     text-align: justify;
 }
@@ -347,7 +347,7 @@ footer {
         -webkit-overflow-scrolling: touch;
     }
     .expert-card {
-        flex: 0 0 85%;
+        flex: 0 0 100%;
         scroll-snap-align: center;
         min-height: 350px;
     }
