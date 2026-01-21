@@ -71,26 +71,32 @@
         <div class="section-header">
             <h2>My Expert <span>Areas</span></h2>
         </div>
-        <div class="expert-grid">
-            <div class="expert-card">
-                <img src="MotionGraphics.png" alt="Motion Graphics">
-                <h4>Motion Graphics</h4>
-                <p>Expert In Creating High-Quality, Professional Motion Visuals With Clean And Impactful Storytelling</p>
-            </div>
-            <div class="expert-card">
-                <img src="AIExpert.png" alt="AI Expert">
-                <h4>AI Expert</h4>
-                <p>Expert In Delivering High-Quality AI-Powered Visuals, Videos, And Creative Solutions</p>
-            </div>
-            <div class="expert-card">
-                <img src="VideoEditing.png" alt="Video Editing">
-                <h4>Video Editing</h4>
-                <p>Skilled In Producing Polished, Engaging Videos With Smooth Transitions And A Professional Finish</p>
-            </div>
-            <div class="expert-card">
-                <img src="GraphicsDesign.png" alt="Graphics Design">
-                <h4>Graphics Design</h4>
-                <p>Professional In Creating Clean, Modern, And Visually Strong Designs That Support Brand Identity</p>
+        
+        <div class="fancy-arrow arrow-left">←</div>
+        <div class="fancy-arrow arrow-right">→</div>
+        
+        <div class="expert-carousel-wrapper" id="expertCarousel">
+            <div class="expert-grid">
+                <div class="expert-card">
+                    <img src="MotionGraphics.png" alt="Motion Graphics">
+                    <h4>Motion Graphics</h4>
+                    <p>Expert In Creating High-Quality, Professional Motion Visuals With Clean And Impactful Storytelling</p>
+                </div>
+                <div class="expert-card">
+                    <img src="AIExpert.png" alt="AI Expert">
+                    <h4>AI Expert</h4>
+                    <p>Expert In Delivering High-Quality AI-Powered Visuals, Videos, And Creative Solutions</p>
+                </div>
+                <div class="expert-card">
+                    <img src="VideoEditing.png" alt="Video Editing">
+                    <h4>Video Editing</h4>
+                    <p>Skilled In Producing Polished, Engaging Videos With Smooth Transitions And A Professional Finish</p>
+                </div>
+                <div class="expert-card">
+                    <img src="GraphicsDesign.png" alt="Graphics Design">
+                    <h4>Graphics Design</h4>
+                    <p>Professional In Creating Clean, Modern, And Visually Strong Designs That Support Brand Identity</p>
+                </div>
             </div>
         </div>
     </section>
@@ -99,7 +105,6 @@
         <div class="section-header">
             <h2>My <span>Portfolio</span></h2>
         </div>
-
         <div class="portfolio-category">
             <h3>Reels</h3>
             <div class="grid-reels">
@@ -262,11 +267,7 @@
 
     <a href="#home" id="backToTop">↑</a>
 
-    
-    <!-- JavaScript Section -->
-
     <script>
-        
         // Set dynamic year
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
@@ -278,7 +279,6 @@
             event.preventDefault();
             const status = document.getElementById("submit-btn");
             const data = new FormData(event.target);
-        
             status.innerHTML = "Sending...";
             status.disabled = true;
 
@@ -288,7 +288,6 @@
                 headers: { 'Accept': 'application/json' }
             }).then(response => {
                 if (response.ok) {
-                    // Hide the form and show the success message
                     form.style.display = "none";
                     successMessage.style.display = "block";
                 } else {
@@ -308,6 +307,7 @@
             });
         }
         form.addEventListener("submit", handleSubmit);
+
         const backToTop = document.getElementById('backToTop');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 400) { backToTop.classList.add('show'); } 
@@ -327,7 +327,30 @@
                 hamburger.classList.remove('toggle');
             });
         });
-    </script>
 
+        // NEW: Arrow Toggle Logic
+        const carousel = document.getElementById('expertCarousel');
+        const leftArrow = document.querySelector('.arrow-left');
+        const rightArrow = document.querySelector('.arrow-right');
+
+        carousel.addEventListener('scroll', () => {
+            const scrollLeft = carousel.scrollLeft;
+            const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+
+            // Toggle Left Arrow
+            if (scrollLeft > 10) {
+                leftArrow.style.display = 'flex';
+            } else {
+                leftArrow.style.display = 'none';
+            }
+
+            // Toggle Right Arrow
+            if (scrollLeft >= maxScroll - 10) {
+                rightArrow.style.display = 'none';
+            } else {
+                rightArrow.style.display = 'flex';
+            }
+        });
+    </script>
 </body>
 </html>
