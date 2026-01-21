@@ -167,6 +167,9 @@ nav {
     margin: 0 auto; 
     text-align: justify;
 }
+.accent {
+    color: var(--accent);
+}
 
 .expert-areas { 
     padding: 60px 5%; 
