@@ -25,11 +25,15 @@ This repository is suitable for use as a personal portfolio website, demo projec
 
 🔮 Features to be added
 
-[] Left-right arrow on mobile like devices for My Expert Areas
-[] Left-right arrow on mobile like devices for Reels
-[] Left-right arrow on mobile like devices for Social Media Ads
-[] Left-right arrow on mobile like devices for Promotional Videos
-[] Responsive for all devices and screen
+[] Left-right arrow on mobile-like devices for My Expert Areas
+
+[] Left-right arrow on mobile-like devices for Reels
+
+[] Left-right arrow on mobile-like devices for Social Media Ads
+
+[] Left-right arrow on mobile-like devices for Promotional Videos
+
+[] Responsive for all devices and screens
 
 
 Created by Naymul Hasan
