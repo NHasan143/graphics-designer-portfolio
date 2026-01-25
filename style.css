@@ -132,7 +132,8 @@ nav {
     display: flex; 
     align-items: center; 
     justify-content: space-between; 
-    padding: 150px 10% 60px; 
+    padding: 150px 10% 0px;
+    padding-top: 40px;
     min-height: 90vh; 
 }
 
@@ -147,8 +148,6 @@ nav {
     padding: 20px 0; 
     background: var(--glass); 
     backdrop-filter: blur(10px); 
-    border-top: 1px solid rgba(255,255,255,0.1);
-    border-bottom: 1px solid rgba(255,255,255,0.1); 
     overflow: hidden; 
     position: relative;
 }
