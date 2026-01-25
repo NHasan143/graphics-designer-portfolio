@@ -132,7 +132,8 @@ nav {
     display: flex; 
     align-items: center; 
     justify-content: space-between; 
-    padding: 150px 10% 60px; 
+    padding: 150px 10% 0px;
+    padding-top: 40px;
     min-height: 90vh; 
 }
 
@@ -147,8 +148,6 @@ nav {
     padding: 20px 0; 
     background: var(--glass); 
     backdrop-filter: blur(10px); 
-    border-top: 1px solid rgba(255,255,255,0.1);
-    border-bottom: 1px solid rgba(255,255,255,0.1); 
     overflow: hidden; 
     position: relative;
 }
@@ -373,16 +372,16 @@ footer {
         top: 60%;
         background: var(--accent);
         color: white;
-        width: 40px;
-        height: 40px;
+        width: 45px; /* Adding this value will make it larger */
+        height: 45px; /* Adding this value will make it larger */
         border-radius: 50%;
         justify-content: center;
         align-items: center;
         font-size: 1.4rem;
-        z-index: 50;
-        box-shadow: 0 0 20px rgba(255, 76, 49, 0.5);
-        pointer-events: none;
-        transition: opacity 0.3s ease;
+        z-index: 100; /* Ensure it stays above everything */
+        box-shadow: 0 0 20px rgba(255, 76, 49, 0.6);
+        pointer-events: auto;
+        cursor: pointer;
     }
 
     .arrow-left {

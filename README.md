@@ -22,3 +22,14 @@ The project emphasizes clean UI/UX design, mobile-first responsiveness, and perf
 --> Freelancer and creative agency showcase
 
 This repository is suitable for use as a personal portfolio website, demo project, or production-ready creative showcase.
+
+🔮 Features to be added
+
+[] Left-right arrow on mobile like devices for My Expert Areas
+[] Left-right arrow on mobile like devices for Reels
+[] Left-right arrow on mobile like devices for Social Media Ads
+[] Left-right arrow on mobile like devices for Promotional Videos
+[] Responsive for all devices and screen
+
+
+Created by Naymul Hasan
