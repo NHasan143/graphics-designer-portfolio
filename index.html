@@ -11,6 +11,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
+    <canvas id="bubble-canvas"></canvas>
+
     <nav>
         <div class="logo">
             <a href="#home">
@@ -213,7 +215,8 @@
             </div>
 
             <div class="contact-form-container">
-                <form id="my-form" action="https://formspree.io/f/mwvvldny" method="POST">
+                <!-- Create a Fontspree account to get your own form action -->
+                <form id="my-form" action="https://formspree.io/f/mwvvldny" method="POST"> 
                     <div id="success-message" style="display:none; text-align:center; padding: 20px;">
                         <p style="color: var(--accent); font-weight: 800; font-size: 1.2rem;">
                             Thanks! I have received your query.
@@ -331,6 +334,72 @@
                 rightArrow.style.display = 'flex';
             }
         });
+        
+        // Cursor effect for bubbles
+        const canvas = document.getElementById('bubble-canvas');
+        const ctx = canvas.getContext('2d');
+        let particlesArray = [];
+
+        // Handle Window Resize
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const mouse = { x: null, y: null };
+
+        window.addEventListener('mousemove', (event) => {
+            mouse.x = event.x;
+            mouse.y = event.y;
+        // Create 2 bubbles per movement
+        for (let i = 0; i < 2; i++) {
+            particlesArray.push(new Particle());
+        }
+    });
+
+    class Particle {
+        constructor() {
+            this.x = mouse.x;
+            this.y = mouse.y;
+            this.size = Math.random() * 10 + 2; // Bubble size
+            this.speedX = Math.random() * 2 - 1; // Horizontal drift
+            this.speedY = Math.random() * -2 - 1; // Upward float
+            this.color = 'rgba(255, 255, 255, 0.3)'; // Semi-transparent white
+        }
+        update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+            if (this.size > 0.2) this.size -= 0.1; // Shrink/Fade over time
+        }
+        draw() {
+            ctx.strokeStyle = this.color;
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.stroke();
+        }
+    }
+
+    function handleParticles() {
+        for (let i = 0; i < particlesArray.length; i++) {
+            particlesArray[i].update();
+            particlesArray[i].draw();
+            // Remove tiny particles to save memory
+            if (particlesArray[i].size <= 0.3) {
+                particlesArray.splice(i, 1);
+                i--;
+            }
+        }
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        handleParticles();
+        requestAnimationFrame(animate);
+    }
+    animate();
     </script>
 </body>
 </html>
