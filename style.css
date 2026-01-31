@@ -329,6 +329,25 @@ footer {
     z-index: 9999;
 }
 
+/* --- TYPEWRITER CURSOR --- */
+.cursor {
+    color: var(--accent);
+    font-weight: 800;
+    animation: blink 0.9s infinite;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Ensure the typewriter text is always the accent color */
+#typewriter {
+    color: var(--accent);
+    font-weight: 600;
+}
+
 /* --- RESPONSIVENESS --- */
 @media (max-width: 900px) {
     .hamburger { display: flex; }

@@ -43,9 +43,8 @@
 
     <header class="hero" id="home">
         <div class="hero-content">
-            <h1><span class="accent"> Hello </span> </span>I'm</h1>
-            <h1>John <span class="accent"> Doe</span></h1>
-            <p>Professional video editor and graphic designer specialized in high-impact visual content</p>
+            <h1><span class="accent"> Hello! </span></h1>
+            <h1>I'm a <span id="typewriter" class="accent"></span><span class="cursor">|</span></h1>
             <button class="btn-hire" onclick="location.href='#portfolio'">View Portfolio</button>
         </div>
         <div class="hero-image">
@@ -401,6 +400,48 @@
         requestAnimationFrame(animate);
     }
     animate();
+    
+// --- UPDATED TYPEWRITER LOGIC (Slower Speeds) ---
+const typewriterText = document.getElementById('typewriter');
+const phrases = ["Video Editor", "Graphic Designer"];
+let phraseIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+
+// Speed Settings (in milliseconds)
+const TYPING_SPEED = 300;     // Higher value provides Slower typing
+const DELETING_SPEED = 150;   // Higher value provides Slower Deleting
+const PAUSE_AT_END = 3000;    // Increased from 2000 (Pause longer on full phrase)
+const PAUSE_BEFORE_TYPE = 800; // Increased from 500 (Pause before starting next phrase)
+
+function type() {
+    const currentPhrase = phrases[phraseIndex];
+    let typeSpeed = TYPING_SPEED;
+    
+    if (isDeleting) {
+        typewriterText.textContent = currentPhrase.substring(0, charIndex - 1);
+        charIndex--;
+        typeSpeed = DELETING_SPEED;
+    } else {
+        typewriterText.textContent = currentPhrase.substring(0, charIndex + 1);
+        charIndex++;
+    }
+
+    // Logic for pausing and switching directions
+    if (!isDeleting && charIndex === currentPhrase.length) {
+        isDeleting = true;
+        typeSpeed = PAUSE_AT_END; 
+    } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        typeSpeed = PAUSE_BEFORE_TYPE;
+    }
+
+    setTimeout(type, typeSpeed);
+}
+
+// Ensure it starts when the page loads
+window.addEventListener('DOMContentLoaded', type);
     </script>
 </body>
 </html>
