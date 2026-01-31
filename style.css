@@ -95,13 +95,13 @@ nav {
     align-items: center; 
     justify-content: space-between; 
     padding: 150px 10% 0px;
-    padding-top: 40px;
+    padding-top: 60px;
     min-height: 90vh; 
     gap: 50px;
 }
 
 .hero-content { max-width: 500px; }
-.hero-content h1 { font-size: 4.5rem; line-height: 1.1; margin-bottom: 20px; font-weight: 800; }
+.hero-content h1 { font-size: clamp(1.5rem, 5vw, 4rem); line-height: 1.2; margin-bottom: 10px; }
 .hero-content span.accent { color: var(--accent); }
 .hero-content p { color: var(--text-gray); margin-bottom: 30px; }
 .hero-image img { width: 400px; border-radius: 20px; z-index: 2; }
@@ -304,6 +304,24 @@ footer {
     display: flex;       /* Keeps "I'm a" and the span perfectly aligned */
     align-items: center;
     overflow: visible;   /* Ensures the cursor isn't clipped */
+    width: 100%;
+}
+/* Specific Tablet Adjustment */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: clamp(1.2rem, 8vw, 2.5rem);
+    }
+}
+
+/* Small Mobile Adjustment (375px and below) */
+@media (max-width: 375px) {
+    .hero-content h1 {
+        font-size: 1.1rem; /* Small enough to fit "Graphic Designer" on one line */
+    }
+    
+    #typewriter {
+        margin-left: 5px; /* Tighter gap for small screens */
+    }
 }
 
 @keyframes blink {
@@ -405,4 +423,32 @@ footer {
 
     .explore-btns { flex-direction: column; align-items: center; }
     .explore-btn { width: 100%; max-width: 300px; }
+}
+/* --- TABLET ADJUSTMENTS (max-width: 1024px) --- */
+@media (max-width: 1024px) {
+    .hero { 
+        flex-direction: column;    /* Stacks text on top of the image */
+        justify-content: center;   /* Centers content vertically */
+        text-align: center;        /* Centers your "Hello!" text */
+        padding: 100px 10% 40px;   /* Reduces top padding from 150px to 100px */
+        gap: 40px;                 /* Reduces the gap between text and image */
+        min-height: auto;          /* Allows the section to fit the content */
+    }
+
+    .profession-line {
+        justify-content: center;   /* Centers the typewriter line on tablet */
+    }
+}
+
+/* --- MOBILE ADJUSTMENTS (max-width: 480px) --- */
+@media (max-width: 480px) {
+    .hero { 
+        padding: 80px 5% 20px;     /* Further reduces padding for small screens */
+        gap: 20px;                 /* Minimal gap for a very tight look */
+    }
+
+    .hero-image img {
+        width: 80%;                /* Slightly shrinks image to fit better with text */
+        margin: 0 auto;
+    }
 }
