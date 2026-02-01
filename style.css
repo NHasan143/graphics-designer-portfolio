@@ -122,7 +122,7 @@ nav {
 .about-content {
     background: var(--glass);
     border: 1px solid var(--glass-border);
-    padding: 50px;
+    padding: 20px;
     border-radius: 30px;
     backdrop-filter: blur(10px);
     max-width: 1500px;
